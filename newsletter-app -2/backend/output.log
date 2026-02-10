@@ -1,0 +1,26 @@
+nohup: ignoring input
+⏱️ Queue worker attivo: 1 email ogni 12s (300/ora)
+✅ Password admin hashata
+✅ Connessione SMTP verificata
+✅ Database inizializzato
+node:events:495
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express/lib/application.js:635:24)
+    at start (/home/dvstqpjx/newsletter-app/backend/server.js:1042:7)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1844:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3001
+}
+
+Node.js v18.20.8

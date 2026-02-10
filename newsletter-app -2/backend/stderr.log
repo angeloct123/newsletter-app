@@ -1,0 +1,1329 @@
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module 'express'
+Require stack:
+- /home/dvstqpjx/newsletter-app/backend/server.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:1:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/dvstqpjx/newsletter-app/backend/server.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module 'express'
+Require stack:
+- /home/dvstqpjx/newsletter-app/backend/server.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:1:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/dvstqpjx/newsletter-app/backend/server.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module 'express'
+Require stack:
+- /home/dvstqpjx/newsletter-app/backend/server.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:1:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/dvstqpjx/newsletter-app/backend/server.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module 'express'
+Require stack:
+- /home/dvstqpjx/newsletter-app/backend/server.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:1:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/dvstqpjx/newsletter-app/backend/server.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module 'express'
+Require stack:
+- /home/dvstqpjx/newsletter-app/backend/server.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:1:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/dvstqpjx/newsletter-app/backend/server.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module 'express'
+Require stack:
+- /home/dvstqpjx/newsletter-app/backend/server.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:1:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/dvstqpjx/newsletter-app/backend/server.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module 'express'
+Require stack:
+- /home/dvstqpjx/newsletter-app/backend/server.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:1:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/dvstqpjx/newsletter-app/backend/server.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/frontend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/frontend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/backend/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/backend/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/newsletter-app/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/frontend/build/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/frontend/build/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/frontend/build/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/frontend/build/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/frontend/build/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/frontend/build/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/frontend/build/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/frontend/build/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/frontend/build/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/frontend/build/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/frontend/build/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/frontend/build/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/frontend/build/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/frontend/build/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/frontend/build/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/frontend/build/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+Unhandled error: [Error: ENOENT: no such file or directory, stat '/home/dvstqpjx/newsletter-app/frontend/build/index.html'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/dvstqpjx/newsletter-app/frontend/build/index.html',
+  expose: false,
+  statusCode: 404,
+  status: 404
+}
+/home/dvstqpjx/newsletter-app/backend/server.js:15
+const app = express();
+            ^
+
+TypeError: express is not a function
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:15:13)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at startApplication (/usr/local/lsws/fcgi-bin/lsnode.js:48:15)
+    at Object.<anonymous> (/usr/local/lsws/fcgi-bin/lsnode.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+
+Node.js v18.20.8
+/home/dvstqpjx/newsletter-app/backend/server.js:15
+const app = express();
+            ^
+
+TypeError: express is not a function
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:15:13)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at startApplication (/usr/local/lsws/fcgi-bin/lsnode.js:48:15)
+    at Object.<anonymous> (/usr/local/lsws/fcgi-bin/lsnode.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+
+Node.js v18.20.8
+/home/dvstqpjx/newsletter-app/backend/server.js:15
+const app = express();
+            ^
+
+TypeError: express is not a function
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:15:13)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at startApplication (/usr/local/lsws/fcgi-bin/lsnode.js:48:15)
+    at Object.<anonymous> (/usr/local/lsws/fcgi-bin/lsnode.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+
+Node.js v18.20.8
+/home/dvstqpjx/newsletter-app/backend/server.js:15
+const app = express();
+            ^
+
+TypeError: express is not a function
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:15:13)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at startApplication (/usr/local/lsws/fcgi-bin/lsnode.js:48:15)
+    at Object.<anonymous> (/usr/local/lsws/fcgi-bin/lsnode.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+
+Node.js v18.20.8
+/home/dvstqpjx/newsletter-app/backend/server.js:15
+const app = express();
+            ^
+
+TypeError: express is not a function
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:15:13)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at startApplication (/usr/local/lsws/fcgi-bin/lsnode.js:48:15)
+    at Object.<anonymous> (/usr/local/lsws/fcgi-bin/lsnode.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+
+Node.js v18.20.8
+/home/dvstqpjx/newsletter-app/backend/server.js:15
+const app = express();
+            ^
+
+TypeError: express is not a function
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:15:13)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at startApplication (/usr/local/lsws/fcgi-bin/lsnode.js:48:15)
+    at Object.<anonymous> (/usr/local/lsws/fcgi-bin/lsnode.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+
+Node.js v18.20.8
+/home/dvstqpjx/newsletter-app/backend/server.js:15
+const app = express();
+            ^
+
+TypeError: express is not a function
+    at Object.<anonymous> (/home/dvstqpjx/newsletter-app/backend/server.js:15:13)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at startApplication (/usr/local/lsws/fcgi-bin/lsnode.js:48:15)
+    at Object.<anonymous> (/usr/local/lsws/fcgi-bin/lsnode.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+
+Node.js v18.20.8
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:185:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:397:22)
+    at Object.keyGenerator (/home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:658:20)
+    at /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:710:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/dvstqpjx/nodevenv/newsletter-app/backend/18/lib/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}

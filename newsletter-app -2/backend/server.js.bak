@@ -1,0 +1,1042 @@
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const nodemailer = require('nodemailer');
+const multer = require('multer');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { v4: uuidv4 } = require('uuid');
+const fs = require('fs');
+const path = require('path');
+const initSqlJs = require('sql.js');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+
+// =============================================
+// CONFIGURAZIONE & COSTANTI
+// =============================================
+
+// FIX: In produzione le variabili d'ambiente sono OBBLIGATORIE
+const JWT_SECRET = process.env.JWT_SECRET;
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+
+if (IS_PRODUCTION && (!JWT_SECRET || !ADMIN_USERNAME || !ADMIN_PASSWORD)) {
+  console.error('❌ ERRORE FATALE: JWT_SECRET, ADMIN_USERNAME e ADMIN_PASSWORD devono essere impostati in produzione!');
+  process.exit(1);
+}
+
+// Fallback solo per sviluppo locale
+const _JWT_SECRET = JWT_SECRET || 'dev-only-secret-change-me';
+const _ADMIN_USERNAME = ADMIN_USERNAME || 'admin';
+const _ADMIN_PASSWORD = ADMIN_PASSWORD || 'CambiaMi123!';
+
+const TRACKING_BASE_URL = process.env.TRACKING_URL || 'https://newsletter.ypamargroup.com';
+
+// Throttling: max 300 email/ora = 1 email ogni 12 secondi
+const EMAIL_RATE_LIMIT = parseInt(process.env.EMAIL_RATE_LIMIT) || 300;
+const EMAIL_DELAY_MS = Math.ceil(3600000 / EMAIL_RATE_LIMIT);
+
+// Hash della password admin (generato all'avvio)
+let ADMIN_PASSWORD_HASH = '';
+
+// =============================================
+// MIDDLEWARE DI SICUREZZA
+// =============================================
+
+// FIX: CSP pulita — rimossi unsafe-eval e CDN non necessari (no più iframe)
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      imgSrc: ["'self'", "data:", "https:"],
+      connectSrc: ["'self'"],
+      frameSrc: ["'none'"]  // FIX: Nessun iframe necessario
+    }
+  },
+  crossOriginEmbedderPolicy: false
+}));
+
+app.use(cors());
+app.use(express.json({ limit: '10mb' }));
+
+// Rate limiting globale
+const globalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 300,
+  message: { error: 'Troppe richieste, riprova tra qualche minuto.' },
+  standardHeaders: true,
+  legacyHeaders: false
+});
+app.use('/api', globalLimiter);
+
+// Rate limiting login
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  message: { error: 'Troppi tentativi di login. Riprova tra 15 minuti.' },
+  standardHeaders: true,
+  legacyHeaders: false
+});
+
+// File upload
+const upload = multer({
+  dest: 'uploads/',
+  limits: { fileSize: 5 * 1024 * 1024 }
+});
+
+// =============================================
+// DATABASE
+// =============================================
+
+const dbPath = path.join(__dirname, 'newsletter.db');
+let db;
+
+async function initDB() {
+  const SQL = await initSqlJs();
+  if (fs.existsSync(dbPath)) {
+    const buffer = fs.readFileSync(dbPath);
+    db = new SQL.Database(buffer);
+  } else {
+    db = new SQL.Database();
+  }
+
+  db.run(`CREATE TABLE IF NOT EXISTS subscribers (
+    id TEXT PRIMARY KEY,
+    email TEXT UNIQUE NOT NULL,
+    name TEXT DEFAULT '',
+    status TEXT DEFAULT 'active',
+    tags TEXT DEFAULT '[]',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  )`);
+
+  db.run(`CREATE TABLE IF NOT EXISTS campaigns (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    subject TEXT NOT NULL,
+    html_content TEXT NOT NULL,
+    text_content TEXT DEFAULT '',
+    editor_blocks TEXT DEFAULT '',
+    target_tags TEXT DEFAULT '[]',
+    status TEXT DEFAULT 'draft',
+    scheduled_at DATETIME,
+    sent_at DATETIME,
+    total_recipients INTEGER DEFAULT 0,
+    total_sent INTEGER DEFAULT 0,
+    total_opened INTEGER DEFAULT 0,
+    total_clicked INTEGER DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  )`);
+
+  db.run(`CREATE TABLE IF NOT EXISTS campaign_events (
+    id TEXT PRIMARY KEY,
+    campaign_id TEXT NOT NULL,
+    subscriber_id TEXT NOT NULL,
+    event_type TEXT NOT NULL,
+    metadata TEXT DEFAULT '{}',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  )`);
+
+  db.run(`CREATE TABLE IF NOT EXISTS unsubscribes (
+    id TEXT PRIMARY KEY,
+    subscriber_id TEXT NOT NULL,
+    campaign_id TEXT,
+    reason TEXT DEFAULT '',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  )`);
+
+  db.run(`CREATE TABLE IF NOT EXISTS email_queue (
+    id TEXT PRIMARY KEY,
+    campaign_id TEXT NOT NULL,
+    subscriber_id TEXT NOT NULL,
+    subscriber_email TEXT NOT NULL,
+    subscriber_name TEXT DEFAULT '',
+    status TEXT DEFAULT 'pending',
+    attempts INTEGER DEFAULT 0,
+    last_error TEXT DEFAULT '',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    processed_at DATETIME
+  )`);
+
+  const indices = [
+    'CREATE INDEX IF NOT EXISTS idx_events_campaign ON campaign_events(campaign_id)',
+    'CREATE INDEX IF NOT EXISTS idx_events_subscriber ON campaign_events(subscriber_id)',
+    'CREATE INDEX IF NOT EXISTS idx_events_type ON campaign_events(event_type)',
+    'CREATE INDEX IF NOT EXISTS idx_subscribers_status ON subscribers(status)',
+    'CREATE INDEX IF NOT EXISTS idx_campaigns_status ON campaigns(status)',
+    'CREATE INDEX IF NOT EXISTS idx_queue_status ON email_queue(status)',
+    'CREATE INDEX IF NOT EXISTS idx_queue_campaign ON email_queue(campaign_id)'
+  ];
+  indices.forEach(sql => { try { db.run(sql); } catch(e) {} });
+
+  // FIX: Migrazione — aggiunge i nuovi campi se il DB esisteva già
+  migrateDB();
+
+  saveDB();
+  console.log('✅ Database inizializzato');
+}
+
+// FIX: Migrazione sicura per DB esistenti
+function migrateDB() {
+  const migrations = [
+    { column: 'editor_blocks', sql: "ALTER TABLE campaigns ADD COLUMN editor_blocks TEXT DEFAULT ''" },
+    { column: 'target_tags', sql: "ALTER TABLE campaigns ADD COLUMN target_tags TEXT DEFAULT '[]'" },
+  ];
+  migrations.forEach(({ column, sql }) => {
+    try {
+      // Controlla se la colonna esiste già
+      const info = db.exec(`PRAGMA table_info(campaigns)`);
+      const columns = info[0] ? info[0].values.map(row => row[1]) : [];
+      if (!columns.includes(column)) {
+        db.run(sql);
+        console.log(`✅ Migrazione: aggiunta colonna "${column}" a campaigns`);
+      }
+    } catch(e) {
+      // La colonna potrebbe già esistere
+    }
+  });
+}
+
+// FIX: saveDB con coda di scrittura per evitare perdita dati
+let saveQueued = false;
+let saveInProgress = false;
+
+function saveDB() {
+  if (saveInProgress) {
+    saveQueued = true;  // Accoda il salvataggio invece di scartarlo
+    return;
+  }
+  saveInProgress = true;
+  try {
+    const data = db.export();
+    const buffer = Buffer.from(data);
+    fs.writeFile(dbPath, buffer, (err) => {
+      saveInProgress = false;
+      if (err) console.error('❌ Errore salvataggio DB:', err.message);
+      // FIX: Se c'era un salvataggio in coda, eseguilo ora
+      if (saveQueued) {
+        saveQueued = false;
+        saveDB();
+      }
+    });
+  } catch(e) {
+    saveInProgress = false;
+    console.error('❌ Errore export DB:', e.message);
+  }
+}
+
+// FIX: dbAll gestisce correttamente params vuoti
+function dbAll(sql, params) {
+  const stmt = db.prepare(sql);
+  if (params && params.length > 0) stmt.bind(params);
+  const results = [];
+  while (stmt.step()) results.push(stmt.getAsObject());
+  stmt.free();
+  return results;
+}
+
+function dbGet(sql, params) {
+  const results = dbAll(sql, params);
+  return results.length > 0 ? results[0] : null;
+}
+
+function dbRun(sql, params) {
+  db.run(sql, params);
+  saveDB();
+}
+
+// =============================================
+// SMTP
+// =============================================
+
+// FIX: Credenziali SMTP obbligatorie in produzione
+const smtpConfig = {
+  host: process.env.SMTP_HOST,
+  port: parseInt(process.env.SMTP_PORT) || 465,
+  secure: process.env.SMTP_SECURE !== 'false',
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
+  },
+  tls: { rejectUnauthorized: IS_PRODUCTION }
+};
+
+if (IS_PRODUCTION && (!smtpConfig.host || !smtpConfig.auth.user || !smtpConfig.auth.pass)) {
+  console.error('⚠️ ATTENZIONE: Configurazione SMTP incompleta! Le email non funzioneranno.');
+}
+
+// Fallback per sviluppo locale
+if (!smtpConfig.host) smtpConfig.host = 'localhost';
+if (!smtpConfig.auth.user) smtpConfig.auth.user = 'test@localhost';
+if (!smtpConfig.auth.pass) smtpConfig.auth.pass = 'test';
+
+const transporter = nodemailer.createTransport(smtpConfig);
+const SMTP_FROM = `${process.env.SMTP_FROM_NAME || 'YPAMAR Group'} <${process.env.SMTP_FROM_EMAIL || smtpConfig.auth.user}>`;
+
+transporter.verify()
+  .then(() => console.log('✅ Connessione SMTP verificata'))
+  .catch(err => console.error('⚠️ SMTP non raggiungibile:', err.message));
+
+// =============================================
+// TRACKING HELPERS
+// =============================================
+
+function generateTrackingPixel(campaignId, subscriberId) {
+  return `<img src="${TRACKING_BASE_URL}/api/track/open/${campaignId}/${subscriberId}" width="1" height="1" style="display:none" alt="" />`;
+}
+
+function wrapLinksWithTracking(html, campaignId, subscriberId) {
+  return html.replace(/href="(https?[^"]+)"/g, function(match, url) {
+    if (url.includes('/api/track/') || url.includes('/api/unsubscribe/')) return match;
+    const trackUrl = `${TRACKING_BASE_URL}/api/track/click/${campaignId}/${subscriberId}?url=${encodeURIComponent(url)}`;
+    return `href="${trackUrl}"`;
+  });
+}
+
+function addUnsubscribeLink(html, campaignId, subscriberId) {
+  const unsubUrl = `${TRACKING_BASE_URL}/api/unsubscribe/${campaignId}/${subscriberId}`;
+  const unsubBlock = `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:20px;border-top:1px solid #eee;padding-top:15px;"><tr><td align="center" style="font-size:12px;color:#999;font-family:Arial,sans-serif;"><p style="margin:0;">Non vuoi più ricevere queste email?</p><p style="margin:5px 0 0;"><a href="${unsubUrl}" style="color:#6c5ce7;">Annulla iscrizione</a></p></td></tr></table>`;
+  if (html.includes('</body>')) {
+    return html.replace('</body>', unsubBlock + '</body>');
+  }
+  return html + unsubBlock;
+}
+
+// =============================================
+// IP GEOLOCATION HELPER
+// =============================================
+
+async function geolocateIP(ip) {
+  let cleanIP = ip.replace('::ffff:', '');
+  if (cleanIP === '127.0.0.1' || cleanIP === '::1' || cleanIP === 'localhost') {
+    return { country: 'Local', city: 'Localhost', region: '' };
+  }
+  try {
+    const response = await fetch(`http://ip-api.com/json/${cleanIP}?fields=status,country,regionName,city`);
+    const data = await response.json();
+    if (data.status === 'success') {
+      return { country: data.country, city: data.city, region: data.regionName };
+    }
+  } catch(e) {
+    console.error('Geolocation error:', e.message);
+  }
+  return { country: 'Unknown', city: 'Unknown', region: '' };
+}
+
+// =============================================
+// AUTENTICAZIONE JWT
+// =============================================
+
+function authMiddleware(req, res, next) {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ error: 'Token di autenticazione mancante' });
+  }
+  const token = authHeader.split(' ')[1];
+  try {
+    const decoded = jwt.verify(token, _JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch(err) {
+    return res.status(401).json({ error: 'Token non valido o scaduto' });
+  }
+}
+
+app.post('/api/auth/login', loginLimiter, async function(req, res) {
+  try {
+    const { username, password } = req.body;
+    if (!username || !password) {
+      return res.status(400).json({ error: 'Username e password sono obbligatori' });
+    }
+    const usernameMatch = username === _ADMIN_USERNAME;
+    const passwordMatch = ADMIN_PASSWORD_HASH ? await bcrypt.compare(password, ADMIN_PASSWORD_HASH) : false;
+    if (!usernameMatch || !passwordMatch) {
+      await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 500));
+      return res.status(401).json({ error: 'Credenziali non valide' });
+    }
+    const token = jwt.sign(
+      { username: _ADMIN_USERNAME, role: 'admin' },
+      _JWT_SECRET,
+      { expiresIn: '24h' }
+    );
+    res.json({ token, user: { username: _ADMIN_USERNAME, role: 'admin' }, expiresIn: 86400 });
+  } catch(err) {
+    console.error('Login error:', err);
+    res.status(500).json({ error: 'Errore durante il login' });
+  }
+});
+
+app.get('/api/auth/verify', authMiddleware, function(req, res) {
+  res.json({ valid: true, user: req.user });
+});
+
+// =============================================
+// API SUBSCRIBERS (PROTETTE)
+// =============================================
+
+app.get('/api/subscribers', authMiddleware, function(req, res) {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = Math.min(parseInt(req.query.limit) || 50, 200);
+    const search = req.query.search || '';
+    const status = req.query.status || '';
+    const offset = (page - 1) * limit;
+
+    let where = 'WHERE 1=1';
+    const params = [];
+    if (search) { where += ' AND (email LIKE ? OR name LIKE ?)'; params.push(`%${search}%`, `%${search}%`); }
+    if (status) { where += ' AND status = ?'; params.push(status); }
+
+    const total = dbGet(`SELECT COUNT(*) as count FROM subscribers ${where}`, params);
+    const allParams = [...params, limit, offset];
+    const subscribers = dbAll(
+      `SELECT * FROM subscribers ${where} ORDER BY created_at DESC LIMIT ? OFFSET ?`,
+      allParams
+    );
+    res.json({ subscribers, total: total.count, page, totalPages: Math.ceil(total.count / limit) });
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+app.post('/api/subscribers', authMiddleware, function(req, res) {
+  try {
+    const { email, name, tags } = req.body;
+    if (!email) return res.status(400).json({ error: 'Email obbligatoria' });
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) return res.status(400).json({ error: 'Formato email non valido' });
+
+    const existing = dbGet('SELECT id FROM subscribers WHERE email = ?', [email.toLowerCase().trim()]);
+    if (existing) return res.status(409).json({ error: 'Questa email è già registrata' });
+
+    const id = uuidv4();
+    dbRun('INSERT INTO subscribers (id, email, name, tags) VALUES (?, ?, ?, ?)',
+      [id, email.toLowerCase().trim(), name || '', JSON.stringify(tags || [])]);
+    const subscriber = dbGet('SELECT * FROM subscribers WHERE id = ?', [id]);
+    res.status(201).json(subscriber);
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+app.put('/api/subscribers/:id', authMiddleware, function(req, res) {
+  try {
+    const subscriber = dbGet('SELECT * FROM subscribers WHERE id = ?', [req.params.id]);
+    if (!subscriber) return res.status(404).json({ error: 'Iscritto non trovato' });
+
+    const name = req.body.name !== undefined ? req.body.name : subscriber.name;
+    const email = req.body.email !== undefined ? req.body.email : subscriber.email;
+    const status = req.body.status !== undefined ? req.body.status : subscriber.status;
+    const tags = req.body.tags !== undefined ? JSON.stringify(req.body.tags) : subscriber.tags;
+
+    dbRun('UPDATE subscribers SET name = ?, email = ?, status = ?, tags = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?',
+      [name, email, status, tags, req.params.id]);
+    const updated = dbGet('SELECT * FROM subscribers WHERE id = ?', [req.params.id]);
+    res.json(updated);
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+app.delete('/api/subscribers/:id', authMiddleware, function(req, res) {
+  try {
+    dbRun('DELETE FROM subscribers WHERE id = ?', [req.params.id]);
+    res.json({ success: true });
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+// Import CSV
+app.post('/api/subscribers/import', authMiddleware, upload.single('file'), function(req, res) {
+  try {
+    if (!req.file) return res.status(400).json({ error: 'Nessun file caricato' });
+    const errors = [];
+    let imported = 0;
+    let duplicates = 0;
+
+    const fileContent = fs.readFileSync(req.file.path, 'utf-8');
+    const lines = fileContent.split(/\r?\n/).filter(l => l.trim());
+    const firstLine = lines[0];
+    const separator = firstLine.includes(';') ? ';' : ',';
+    const headers = firstLine.toLowerCase().split(separator).map(h => h.trim().replace(/"/g, ''));
+
+    const emailIdx = headers.findIndex(h => h.includes('email') || h.includes('mail'));
+    const nameIdx = headers.findIndex(h => h.includes('name') || h.includes('nome'));
+
+    if (emailIdx === -1) {
+      fs.unlinkSync(req.file.path);
+      return res.status(400).json({ error: 'Colonna email non trovata nel CSV.' });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    for (let i = 1; i < lines.length; i++) {
+      const cols = lines[i].split(separator).map(c => c.trim().replace(/"/g, ''));
+      const email = cols[emailIdx] ? cols[emailIdx].toLowerCase().trim() : '';
+      const name = nameIdx >= 0 ? (cols[nameIdx] ? cols[nameIdx].trim() : '') : '';
+
+      if (!email || !emailRegex.test(email)) { errors.push(`Riga ${i + 1}: email non valida`); continue; }
+
+      const existing = dbGet('SELECT id FROM subscribers WHERE email = ?', [email]);
+      if (existing) { duplicates++; continue; }
+
+      dbRun('INSERT INTO subscribers (id, email, name, tags) VALUES (?, ?, ?, ?)',
+        [uuidv4(), email, name, '[]']);
+      imported++;
+    }
+
+    fs.unlinkSync(req.file.path);
+    res.json({ imported, duplicates, errors: errors.slice(0, 10), total: lines.length - 1 });
+  } catch(err) {
+    if (req.file && fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Export CSV
+app.get('/api/subscribers/export', authMiddleware, function(req, res) {
+  try {
+    const subscribers = dbAll('SELECT email, name, status, created_at FROM subscribers ORDER BY created_at DESC', []);
+    let csvContent = 'email,nome,stato,data_iscrizione\n';
+    subscribers.forEach(s => {
+      const name = (s.name || '').includes(',') ? `"${s.name}"` : (s.name || '');
+      csvContent += `${s.email},${name},${s.status},${s.created_at}\n`;
+    });
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', 'attachment; filename=iscritti.csv');
+    res.send(csvContent);
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+// =============================================
+// API TAGS
+// =============================================
+
+app.get('/api/tags', authMiddleware, function(req, res) {
+  try {
+    const subs = dbAll('SELECT tags FROM subscribers', []);
+    const allTags = new Set();
+    subs.forEach(s => {
+      try { JSON.parse(s.tags || '[]').forEach(t => allTags.add(t)); } catch(e) {}
+    });
+    res.json([...allTags].sort());
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+// =============================================
+// API CAMPAIGNS (PROTETTE)
+// =============================================
+
+app.get('/api/campaigns', authMiddleware, function(req, res) {
+  try {
+    const campaigns = dbAll('SELECT * FROM campaigns ORDER BY created_at DESC', []);
+    res.json(campaigns);
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+app.get('/api/campaigns/:id', authMiddleware, function(req, res) {
+  try {
+    const campaign = dbGet('SELECT * FROM campaigns WHERE id = ?', [req.params.id]);
+    if (!campaign) return res.status(404).json({ error: 'Campagna non trovata' });
+
+    const opens = dbAll(`
+      SELECT ce.*, s.email, s.name
+      FROM campaign_events ce JOIN subscribers s ON ce.subscriber_id = s.id
+      WHERE ce.campaign_id = ? AND ce.event_type = 'open'
+      ORDER BY ce.created_at DESC`, [req.params.id]);
+
+    const clicks = dbAll(`
+      SELECT ce.*, s.email, s.name
+      FROM campaign_events ce JOIN subscribers s ON ce.subscriber_id = s.id
+      WHERE ce.campaign_id = ? AND ce.event_type = 'click'
+      ORDER BY ce.created_at DESC`, [req.params.id]);
+
+    const uniqueOpens = dbGet(
+      "SELECT COUNT(DISTINCT subscriber_id) as count FROM campaign_events WHERE campaign_id = ? AND event_type = 'open'",
+      [req.params.id]
+    );
+    const uniqueClicks = dbGet(
+      "SELECT COUNT(DISTINCT subscriber_id) as count FROM campaign_events WHERE campaign_id = ? AND event_type = 'click'",
+      [req.params.id]
+    );
+
+    const subscriberOpens = dbAll(`
+      SELECT s.email, s.name, COUNT(*) as open_count,
+        MIN(ce.created_at) as first_open, MAX(ce.created_at) as last_open
+      FROM campaign_events ce JOIN subscribers s ON ce.subscriber_id = s.id
+      WHERE ce.campaign_id = ? AND ce.event_type = 'open'
+      GROUP BY ce.subscriber_id ORDER BY first_open DESC`, [req.params.id]);
+
+    const geoData = dbAll(`
+      SELECT ce.metadata FROM campaign_events ce
+      WHERE ce.campaign_id = ? AND ce.event_type = 'open' AND ce.metadata LIKE '%"geo"%'
+    `, [req.params.id]);
+    const geoStats = {};
+    geoData.forEach(row => {
+      try {
+        const meta = JSON.parse(row.metadata);
+        if (meta.geo && meta.geo.city && meta.geo.city !== 'Unknown') {
+          const key = meta.geo.city;
+          geoStats[key] = (geoStats[key] || 0) + 1;
+        }
+      } catch(e) {}
+    });
+
+    const deviceData = dbAll(`
+      SELECT ce.metadata FROM campaign_events ce
+      WHERE ce.campaign_id = ? AND ce.event_type = 'open'
+    `, [req.params.id]);
+    const deviceStats = { desktop: 0, mobile: 0, tablet: 0, unknown: 0 };
+    const browserStats = {};
+    deviceData.forEach(row => {
+      try {
+        const meta = JSON.parse(row.metadata);
+        const ua = (meta.userAgent || '').toLowerCase();
+        if (/ipad|tablet/i.test(ua)) deviceStats.tablet++;
+        else if (/iphone|android.*mobile|mobile/i.test(ua)) deviceStats.mobile++;
+        else if (/windows|macintosh|linux/i.test(ua)) deviceStats.desktop++;
+        else deviceStats.unknown++;
+        let browser = 'Altro';
+        if (/edg\//i.test(ua)) browser = 'Edge';
+        else if (/chrome/i.test(ua) && !/edg/i.test(ua)) browser = 'Chrome';
+        else if (/safari/i.test(ua) && !/chrome/i.test(ua)) browser = 'Safari';
+        else if (/firefox/i.test(ua)) browser = 'Firefox';
+        else if (/outlook/i.test(ua)) browser = 'Outlook';
+        else if (/thunderbird/i.test(ua)) browser = 'Thunderbird';
+        browserStats[browser] = (browserStats[browser] || 0) + 1;
+      } catch(e) {}
+    });
+
+    const clickHeatmap = {};
+    clicks.forEach(c => {
+      try {
+        const meta = JSON.parse(c.metadata);
+        if (meta.url) clickHeatmap[meta.url] = (clickHeatmap[meta.url] || 0) + 1;
+      } catch(e) {}
+    });
+
+    const queueStats = dbGet(`
+      SELECT COUNT(*) as total,
+        SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) as pending,
+        SUM(CASE WHEN status = 'sent' THEN 1 ELSE 0 END) as sent_count,
+        SUM(CASE WHEN status = 'failed' THEN 1 ELSE 0 END) as failed_count,
+        SUM(CASE WHEN status = 'processing' THEN 1 ELSE 0 END) as processing
+      FROM email_queue WHERE campaign_id = ?
+    `, [req.params.id]);
+
+    campaign.opens = opens;
+    campaign.clicks = clicks;
+    campaign.uniqueOpens = uniqueOpens ? uniqueOpens.count : 0;
+    campaign.uniqueClicks = uniqueClicks ? uniqueClicks.count : 0;
+    campaign.subscriberOpens = subscriberOpens;
+    campaign.geoStats = geoStats;
+    campaign.deviceStats = deviceStats;
+    campaign.browserStats = browserStats;
+    campaign.clickHeatmap = clickHeatmap;
+    campaign.queueStats = queueStats || { total: 0, pending: 0, sent_count: 0, failed_count: 0, processing: 0 };
+
+    res.json(campaign);
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+// FIX: POST/PUT campagne — accetta sia html_content che htmlcontent per retrocompatibilità
+app.post('/api/campaigns', authMiddleware, function(req, res) {
+  try {
+    const { name, subject, html_content, htmlcontent, text_content, textcontent, editor_blocks, target_tags, status } = req.body;
+    const finalHTML = html_content || htmlcontent;
+    const finalText = text_content || textcontent || '';
+
+    if (!name || !subject || !finalHTML) {
+      return res.status(400).json({ error: 'Nome, oggetto e contenuto HTML sono obbligatori' });
+    }
+
+    const id = uuidv4();
+    dbRun(
+      'INSERT INTO campaigns (id, name, subject, html_content, text_content, editor_blocks, target_tags, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+      [id, name, subject, finalHTML, finalText, editor_blocks || '', target_tags || '[]', status || 'draft']
+    );
+    const campaign = dbGet('SELECT * FROM campaigns WHERE id = ?', [id]);
+    res.status(201).json(campaign);
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+app.put('/api/campaigns/:id', authMiddleware, function(req, res) {
+  try {
+    const campaign = dbGet('SELECT * FROM campaigns WHERE id = ?', [req.params.id]);
+    if (!campaign) return res.status(404).json({ error: 'Campagna non trovata' });
+    if (campaign.status === 'sent') {
+      return res.status(400).json({ error: 'Non puoi modificare una campagna già inviata' });
+    }
+
+    const name = req.body.name !== undefined ? req.body.name : campaign.name;
+    const subject = req.body.subject !== undefined ? req.body.subject : campaign.subject;
+    // FIX: Accetta entrambi i nomi di campo
+    const htmlcontent = req.body.html_content || req.body.htmlcontent;
+    const finalHTML = htmlcontent !== undefined ? htmlcontent : campaign.html_content;
+    const textcontent = req.body.text_content || req.body.textcontent;
+    const finalText = textcontent !== undefined ? textcontent : campaign.text_content;
+    const status = req.body.status !== undefined ? req.body.status : campaign.status;
+    const editor_blocks = req.body.editor_blocks !== undefined ? req.body.editor_blocks : campaign.editor_blocks;
+    const target_tags = req.body.target_tags !== undefined ? req.body.target_tags : campaign.target_tags;
+
+    dbRun(
+      'UPDATE campaigns SET name = ?, subject = ?, html_content = ?, text_content = ?, editor_blocks = ?, target_tags = ?, status = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?',
+      [name, subject, finalHTML, finalText, editor_blocks, target_tags, status, req.params.id]
+    );
+    const updated = dbGet('SELECT * FROM campaigns WHERE id = ?', [req.params.id]);
+    res.json(updated);
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+app.delete('/api/campaigns/:id', authMiddleware, function(req, res) {
+  try {
+    dbRun('DELETE FROM email_queue WHERE campaign_id = ?', [req.params.id]);
+    dbRun('DELETE FROM campaign_events WHERE campaign_id = ?', [req.params.id]);
+    dbRun('DELETE FROM campaigns WHERE id = ?', [req.params.id]);
+    res.json({ success: true });
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+app.post('/api/campaigns/:id/duplicate', authMiddleware, function(req, res) {
+  try {
+    const original = dbGet('SELECT * FROM campaigns WHERE id = ?', [req.params.id]);
+    if (!original) return res.status(404).json({ error: 'Campagna non trovata' });
+    const id = uuidv4();
+    dbRun(
+      'INSERT INTO campaigns (id, name, subject, html_content, text_content, editor_blocks, target_tags) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      [id, original.name + ' (copia)', original.subject, original.html_content, original.text_content, original.editor_blocks || '', original.target_tags || '[]']
+    );
+    const campaign = dbGet('SELECT * FROM campaigns WHERE id = ?', [id]);
+    res.status(201).json(campaign);
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+// =============================================
+// SISTEMA DI CODA EMAIL (QUEUE SYSTEM)
+// =============================================
+
+app.post('/api/campaigns/:id/send', authMiddleware, async function(req, res) {
+  try {
+    const campaign = dbGet('SELECT * FROM campaigns WHERE id = ?', [req.params.id]);
+    if (!campaign) return res.status(404).json({ error: 'Campagna non trovata' });
+    if (campaign.status === 'sent' || campaign.status === 'sending') {
+      return res.status(400).json({ error: 'Campagna già inviata o in fase di invio' });
+    }
+
+    const { targetTags } = req.body || {};
+    let subscribers;
+    if (targetTags && Array.isArray(targetTags) && targetTags.length > 0) {
+      const allActive = dbAll("SELECT * FROM subscribers WHERE status = 'active'", []);
+      subscribers = allActive.filter(s => {
+        try {
+          const tags = JSON.parse(s.tags || '[]');
+          return targetTags.some(t => tags.includes(t));
+        } catch(e) { return false; }
+      });
+    } else {
+      subscribers = dbAll("SELECT * FROM subscribers WHERE status = 'active'", []);
+    }
+
+    if (subscribers.length === 0) {
+      return res.status(400).json({ error: 'Nessun iscritto attivo' });
+    }
+
+    dbRun("UPDATE campaigns SET status = 'sending', total_recipients = ? WHERE id = ?",
+      [subscribers.length, campaign.id]);
+
+    for (let i = 0; i < subscribers.length; i++) {
+      const sub = subscribers[i];
+      dbRun(
+        'INSERT INTO email_queue (id, campaign_id, subscriber_id, subscriber_email, subscriber_name, status) VALUES (?, ?, ?, ?, ?, ?)',
+        [uuidv4(), campaign.id, sub.id, sub.email, sub.name, 'pending']
+      );
+    }
+
+    console.log(`📧 Campagna "${campaign.name}": ${subscribers.length} email aggiunte alla coda`);
+    res.json({
+      message: `Invio in coda: ${subscribers.length} email programmate (${EMAIL_RATE_LIMIT}/ora)`,
+      totalRecipients: subscribers.length,
+      estimatedMinutes: Math.ceil(subscribers.length / (EMAIL_RATE_LIMIT / 60))
+    });
+  } catch(err) {
+    console.error('Send campaign error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/campaigns/:id/queue-status', authMiddleware, function(req, res) {
+  try {
+    const stats = dbGet(`
+      SELECT COUNT(*) as total,
+        SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) as pending,
+        SUM(CASE WHEN status = 'sent' THEN 1 ELSE 0 END) as sent_count,
+        SUM(CASE WHEN status = 'failed' THEN 1 ELSE 0 END) as failed_count,
+        SUM(CASE WHEN status = 'processing' THEN 1 ELSE 0 END) as processing
+      FROM email_queue WHERE campaign_id = ?
+    `, [req.params.id]);
+    res.json(stats || { total: 0, pending: 0, sent_count: 0, failed_count: 0, processing: 0 });
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+// WORKER: Processa la coda email
+let queueProcessing = false;
+
+async function processEmailQueue() {
+  if (queueProcessing) return;
+  queueProcessing = true;
+  try {
+    const item = dbGet(
+      `SELECT eq.*, c.name as campaign_name, c.subject, c.html_content, c.text_content
+       FROM email_queue eq JOIN campaigns c ON eq.campaign_id = c.id
+       WHERE eq.status = 'pending' ORDER BY eq.created_at ASC LIMIT 1`, []
+    );
+
+    if (!item) { queueProcessing = false; return; }
+
+    dbRun("UPDATE email_queue SET status = 'processing' WHERE id = ?", [item.id]);
+
+    try {
+      let html = item.html_content;
+      html = html.replace(/\{\{nome\}\}/gi, item.subscriber_name || 'Gentile utente');
+      html = html.replace(/\{\{email\}\}/gi, item.subscriber_email);
+      html = wrapLinksWithTracking(html, item.campaign_id, item.subscriber_id);
+      html = addUnsubscribeLink(html, item.campaign_id, item.subscriber_id);
+      html += generateTrackingPixel(item.campaign_id, item.subscriber_id);
+
+      await transporter.sendMail({
+        from: SMTP_FROM,
+        to: item.subscriber_email,
+        subject: item.subject.replace(/\{\{nome\}\}/gi, item.subscriber_name || ''),
+        html: html,
+        text: item.text_content || '',
+        headers: {
+          'List-Unsubscribe': `<${TRACKING_BASE_URL}/api/unsubscribe/${item.campaign_id}/${item.subscriber_id}>`,
+          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click'
+        }
+      });
+
+      dbRun('INSERT INTO campaign_events (id, campaign_id, subscriber_id, event_type) VALUES (?, ?, ?, ?)',
+        [uuidv4(), item.campaign_id, item.subscriber_id, 'sent']);
+      dbRun("UPDATE email_queue SET status = 'sent', processed_at = CURRENT_TIMESTAMP WHERE id = ?", [item.id]);
+
+      const sentCount = dbGet("SELECT COUNT(*) as count FROM email_queue WHERE campaign_id = ? AND status = 'sent'", [item.campaign_id]);
+      dbRun('UPDATE campaigns SET total_sent = ? WHERE id = ?', [sentCount.count, item.campaign_id]);
+
+      console.log(`✉️ Inviata a ${item.subscriber_email} (campagna: ${item.campaign_name})`);
+    } catch(emailErr) {
+      const attempts = item.attempts + 1;
+      if (attempts >= 3) {
+        dbRun("UPDATE email_queue SET status = 'failed', attempts = ?, last_error = ?, processed_at = CURRENT_TIMESTAMP WHERE id = ?",
+          [attempts, emailErr.message, item.id]);
+        dbRun('INSERT INTO campaign_events (id, campaign_id, subscriber_id, event_type, metadata) VALUES (?, ?, ?, ?, ?)',
+          [uuidv4(), item.campaign_id, item.subscriber_id, 'failed', JSON.stringify({ error: emailErr.message })]);
+        console.error(`❌ Fallito definitivamente: ${item.subscriber_email} - ${emailErr.message}`);
+      } else {
+        dbRun("UPDATE email_queue SET status = 'pending', attempts = ?, last_error = ? WHERE id = ?",
+          [attempts, emailErr.message, item.id]);
+        console.warn(`⚠️ Tentativo ${attempts}/3 fallito per ${item.subscriber_email}: ${emailErr.message}`);
+      }
+    }
+
+    const remaining = dbGet(
+      "SELECT COUNT(*) as count FROM email_queue WHERE campaign_id = ? AND status IN ('pending', 'processing')",
+      [item.campaign_id]
+    );
+    if (remaining.count === 0) {
+      const sentTotal = dbGet("SELECT COUNT(*) as count FROM email_queue WHERE campaign_id = ? AND status = 'sent'", [item.campaign_id]);
+      dbRun("UPDATE campaigns SET status = 'sent', sent_at = CURRENT_TIMESTAMP, total_sent = ? WHERE id = ?",
+        [sentTotal.count, item.campaign_id]);
+      console.log(`🎉 Campagna "${item.campaign_name}" completata! ${sentTotal.count} email inviate.`);
+    }
+  } catch(err) {
+    console.error('Queue processing error:', err);
+  }
+  queueProcessing = false;
+}
+
+setInterval(processEmailQueue, EMAIL_DELAY_MS);
+console.log(`⏱️ Queue worker attivo: 1 email ogni ${EMAIL_DELAY_MS / 1000}s (${EMAIL_RATE_LIMIT}/ora)`);
+
+// =============================================
+// TEST EMAIL & SMTP
+// =============================================
+
+// Test invio email di una campagna specifica
+app.post('/api/campaigns/:id/test', authMiddleware, async function(req, res) {
+  try {
+    const { email } = req.body;
+    if (!email) return res.status(400).json({ error: 'Email di test obbligatoria' });
+
+    const campaign = dbGet('SELECT * FROM campaigns WHERE id = ?', [req.params.id]);
+    if (!campaign) return res.status(404).json({ error: 'Campagna non trovata' });
+
+    let html = campaign.html_content;
+    html = html.replace(/\{\{nome\}\}/gi, 'Test User');
+    html = html.replace(/\{\{email\}\}/gi, email);
+
+    await transporter.sendMail({
+      from: SMTP_FROM,
+      to: email,
+      subject: `[TEST] ${campaign.subject}`,
+      html: html,
+      text: campaign.text_content || ''
+    });
+    res.json({ message: `Email di test inviata a ${email}` });
+  } catch(err) { res.status(500).json({ error: 'Errore invio: ' + err.message }); }
+});
+
+// Test connessione SMTP (dalla pagina Impostazioni)
+app.post('/api/test-smtp', authMiddleware, async function(req, res) {
+  try {
+    await transporter.verify();
+    res.json({ message: 'Connessione SMTP riuscita! Il server è raggiungibile.' });
+  } catch(err) {
+    res.status(500).json({ error: 'Connessione SMTP fallita: ' + err.message });
+  }
+});
+
+
+// =============================================
+// TRACKING (PUBBLICO - no auth)
+// =============================================
+
+app.get('/api/track/open/:campaignId/:subscriberId', async function(req, res) {
+  const pixel = Buffer.from('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', 'base64');
+  res.writeHead(200, {
+    'Content-Type': 'image/gif',
+    'Content-Length': pixel.length,
+    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  });
+  res.end(pixel);
+
+  try {
+    const { campaignId, subscriberId } = req.params;
+    const userAgent = req.headers['user-agent'] || '';
+    const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.ip || '';
+    const geo = await geolocateIP(ip);
+
+    dbRun('INSERT INTO campaign_events (id, campaign_id, subscriber_id, event_type, metadata) VALUES (?, ?, ?, ?, ?)',
+      [uuidv4(), campaignId, subscriberId, 'open', JSON.stringify({ userAgent, ip, geo })]);
+
+    const uniqueOpens = dbGet(
+      "SELECT COUNT(DISTINCT subscriber_id) as count FROM campaign_events WHERE campaign_id = ? AND event_type = 'open'",
+      [campaignId]
+    );
+    dbRun('UPDATE campaigns SET total_opened = ? WHERE id = ?', [uniqueOpens ? uniqueOpens.count : 0, campaignId]);
+  } catch(err) { console.error('Track open error:', err); }
+});
+
+app.get('/api/track/click/:campaignId/:subscriberId', function(req, res) {
+  try {
+    const { campaignId, subscriberId } = req.params;
+    const url = req.query.url;
+    const userAgent = req.headers['user-agent'] || '';
+    const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.ip || '';
+
+    dbRun('INSERT INTO campaign_events (id, campaign_id, subscriber_id, event_type, metadata) VALUES (?, ?, ?, ?, ?)',
+      [uuidv4(), campaignId, subscriberId, 'click', JSON.stringify({ url, userAgent, ip })]);
+
+    const uniqueClicks = dbGet(
+      "SELECT COUNT(DISTINCT subscriber_id) as count FROM campaign_events WHERE campaign_id = ? AND event_type = 'click'",
+      [campaignId]
+    );
+    dbRun('UPDATE campaigns SET total_clicked = ? WHERE id = ?', [uniqueClicks ? uniqueClicks.count : 0, campaignId]);
+
+    if (url) return res.redirect(decodeURIComponent(url));
+  } catch(err) { console.error('Track click error:', err); }
+  res.redirect('/');
+});
+
+// =============================================
+// UNSUBSCRIBE (PUBBLICO)
+// =============================================
+
+app.get('/api/unsubscribe/:campaignId/:subscriberId', function(req, res) {
+  try {
+    const { campaignId, subscriberId } = req.params;
+
+    dbRun("UPDATE subscribers SET status = 'unsubscribed', updated_at = CURRENT_TIMESTAMP WHERE id = ?", [subscriberId]);
+    dbRun('INSERT INTO unsubscribes (id, subscriber_id, campaign_id) VALUES (?, ?, ?)', [uuidv4(), subscriberId, campaignId]);
+    dbRun('INSERT INTO campaign_events (id, campaign_id, subscriber_id, event_type) VALUES (?, ?, ?, ?)',
+      [uuidv4(), campaignId, subscriberId, 'unsubscribe']);
+
+    const subscriber = dbGet('SELECT email FROM subscribers WHERE id = ?', [subscriberId]);
+
+    res.send(`<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Iscrizione annullata</title>
+    <style>body{font-family:Arial,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;background:#f4f4f7;color:#333;}
+    .card{background:#fff;padding:40px;border-radius:12px;text-align:center;max-width:400px;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+    h1{color:#6c5ce7;font-size:24px;}p{color:#666;line-height:1.6;}</style></head>
+    <body><div class="card"><h1>✅ Iscrizione annullata</h1>
+    <p>${subscriber ? '<strong>' + subscriber.email + '</strong><br>' : ''}Il tuo indirizzo è stato rimosso dalla nostra mailing list.</p>
+    <p>Non riceverai più le nostre newsletter.</p></div></body></html>`);
+  } catch(err) {
+    console.error('Unsubscribe error:', err);
+    res.status(500).send('Errore durante la cancellazione');
+  }
+});
+
+// =============================================
+// DASHBOARD STATS
+// =============================================
+
+app.get('/api/stats', authMiddleware, function(req, res) {
+  try {
+    const totalSubs = dbGet("SELECT COUNT(*) as count FROM subscribers", []);
+    const activeSubs = dbGet("SELECT COUNT(*) as count FROM subscribers WHERE status = 'active'", []);
+    const totalCampaigns = dbGet("SELECT COUNT(*) as count FROM campaigns", []);
+    const sentCampaigns = dbGet("SELECT COUNT(*) as count FROM campaigns WHERE status = 'sent'", []);
+    const totalOpens = dbGet("SELECT COUNT(*) as count FROM campaign_events WHERE event_type = 'open'", []);
+    const totalClicks = dbGet("SELECT COUNT(*) as count FROM campaign_events WHERE event_type = 'click'", []);
+    const totalUnsubs = dbGet("SELECT COUNT(*) as count FROM unsubscribes", []);
+
+    // Ultimi 30 giorni — nuovi iscritti per giorno
+    const subsGrowth = dbAll(
+      "SELECT DATE(created_at) as date, COUNT(*) as count FROM subscribers WHERE created_at >= DATE('now', '-30 days') GROUP BY DATE(created_at) ORDER BY date",
+      []
+    );
+
+    res.json({
+      subscribers: { total: totalSubs.count, active: activeSubs.count },
+      campaigns: { total: totalCampaigns.count, sent: sentCampaigns.count },
+      events: { opens: totalOpens.count, clicks: totalClicks.count, unsubscribes: totalUnsubs.count },
+      subsGrowth
+    });
+  } catch(err) { res.status(500).json({ error: err.message }); }
+});
+
+// =============================================
+// SERVE STATIC FILES (Frontend)
+// =============================================
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+// SPA fallback — serve index.html per tutte le route non API
+app.get('*', function(req, res) {
+  if (req.path.startsWith('/api/')) return res.status(404).json({ error: 'Endpoint non trovato' });
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// =============================================
+// AVVIO SERVER
+// =============================================
+
+async function start() {
+  // Hash password admin
+  ADMIN_PASSWORD_HASH = await bcrypt.hash(_ADMIN_PASSWORD, 12);
+  console.log('✅ Password admin hashata');
+
+  await initDB();
+
+  app.listen(PORT, function() {
+    console.log(`🚀 Server avviato su porta ${PORT}`);
+    console.log(`📊 Modalità: ${IS_PRODUCTION ? 'PRODUZIONE' : 'SVILUPPO'}`);
+  });
+}
+
+start().catch(err => {
+  console.error('❌ Errore avvio:', err);
+  process.exit(1);
+});

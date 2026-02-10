@@ -1,0 +1,17 @@
+export const EMAIL_TEMPLATES = [
+  {
+    name: 'Minimal Elegante',
+    desc: 'Design pulito',
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><style>body{margin:0;padding:0;background:#f4f4f7;font-family:-apple-system,sans-serif}.container{max-width:600px;margin:0 auto;background:#fff}.header{background:#1a1a2e;padding:40px 32px;text-align:center}.header h1{color:#fff;font-size:28px;margin:0}.content{padding:40px 32px}.content h2{color:#1a1a2e;font-size:22px;margin:0 0 16px}.content p{color:#555;font-size:16px;line-height:1.7;margin:0 0 16px}.cta-btn{display:inline-block;background:#6c5ce7;color:#fff!important;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600}.footer{background:#f9f9fb;padding:24px 32px;text-align:center;font-size:13px;color:#999}</style></head><body><div class="container"><div class="header"><h1>YPAMAR Group</h1></div><div class="content"><h2>Ciao!</h2><p>Contenuto della newsletter.</p><a href="https://ypamargroup.it" class="cta-btn">Scopri di più</a></div><div class="footer"><p>&copy; 2026 YPAMAR Group</p></div></div></body></html>`,
+  },
+  {
+    name: 'Promozionale',
+    desc: 'Per offerte',
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><style>body{margin:0;padding:0;background:#f0f0f5;font-family:-apple-system,sans-serif}.container{max-width:600px;margin:0 auto;background:#fff}.hero{background:linear-gradient(135deg,#6c5ce7,#a29bfe);padding:48px 32px;text-align:center}.hero h1{color:#fff;font-size:32px;margin:0 0 8px}.hero p{color:rgba(255,255,255,0.9);font-size:18px;margin:0}.content{padding:32px}.offer-box{background:#f8f7ff;border:2px dashed #6c5ce7;border-radius:12px;padding:24px;text-align:center;margin:24px 0}.offer-box h3{color:#6c5ce7;font-size:36px;margin:0}.cta{display:inline-block;background:#6c5ce7;color:#fff!important;padding:16px 40px;border-radius:8px;text-decoration:none;font-weight:700}.footer{padding:24px;text-align:center;font-size:13px;color:#999}</style></head><body><div class="container"><div class="hero"><h1>Offerta Speciale!</h1><p>Solo per te</p></div><div class="content"><div class="offer-box"><h3>-30%</h3><p>Su tutti i prodotti</p></div><a href="#" class="cta">Approfitta Ora</a></div><div class="footer"><p>&copy; 2026 YPAMAR Group</p></div></div></body></html>`,
+  },
+  {
+    name: 'Newsletter',
+    desc: 'Aggiornamenti',
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><style>body{margin:0;padding:0;background:#f5f5f5;font-family:-apple-system,sans-serif}.container{max-width:600px;margin:0 auto;background:#fff}.header{background:#0f172a;padding:32px;text-align:center}.header h1{color:#fff;font-size:24px;margin:0}.section{padding:24px 32px;border-bottom:1px solid #eee}.section h2{color:#0f172a;font-size:20px;margin:0 0 12px}.section p{color:#555;line-height:1.6;margin:0 0 12px}.read-more{color:#6c5ce7;font-weight:600;text-decoration:none}.footer{padding:24px 32px;text-align:center;font-size:13px;color:#999}</style></head><body><div class="container"><div class="header"><h1>Newsletter Mensile</h1></div><div class="section"><h2>Articolo 1</h2><p>Lorem ipsum dolor sit amet.</p><a href="#" class="read-more">Leggi &rarr;</a></div><div class="section"><h2>Articolo 2</h2><p>Consectetur adipiscing elit.</p><a href="#" class="read-more">Leggi &rarr;</a></div><div class="footer"><p>&copy; 2026 YPAMAR Group</p></div></div></body></html>`,
+  },
+]

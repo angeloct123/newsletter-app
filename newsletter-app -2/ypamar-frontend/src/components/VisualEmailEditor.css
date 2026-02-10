@@ -1,0 +1,1929 @@
+/* ============================================================
+   VisualEmailEditor v7.1 FINAL — Unified CSS
+   Complete Professional Email Editor Styles
+
+   Includes:
+   - Core v7.0 layout (sidebar, canvas, properties panel)
+   - v7.1 features: ImageUploader, Countdown, Product Card,
+     Save Template, Deliverability Stats, Mobile Preview
+   - Utility classes, animations, responsive breakpoints
+   - Dark theme optimized for email editor UX
+   ============================================================ */
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES
+   ============================================================ */
+
+:root {
+  /* Brand */
+  --vee-primary: #6c5ce7;
+  --vee-primary-light: #a29bfe;
+  --vee-primary-dark: #5a4bd1;
+  --vee-primary-glow: rgba(108, 92, 231, 0.35);
+
+  /* Surfaces */
+  --vee-bg: #0f0f23;
+  --vee-surface: #1a1a2e;
+  --vee-card: #1e293b;
+  --vee-card-hover: #253347;
+  --vee-card-active: #2a3f5f;
+
+  /* Borders */
+  --vee-border: #2d3748;
+  --vee-border-light: #374151;
+  --vee-border-focus: rgba(108, 92, 231, 0.5);
+
+  /* Text */
+  --vee-text: #e2e8f0;
+  --vee-text-muted: #94a3b8;
+  --vee-text-dim: #64748b;
+  --vee-text-bright: #f8fafc;
+
+  /* Status */
+  --vee-danger: #ef4444;
+  --vee-danger-light: #fca5a5;
+  --vee-danger-bg: rgba(239, 68, 68, 0.12);
+  --vee-success: #22c55e;
+  --vee-success-light: #86efac;
+  --vee-success-bg: rgba(34, 197, 94, 0.12);
+  --vee-warning: #f59e0b;
+  --vee-warning-light: #fbbf24;
+  --vee-warning-bg: rgba(245, 158, 11, 0.12);
+  --vee-info: #3b82f6;
+  --vee-info-bg: rgba(59, 130, 246, 0.12);
+
+  /* Geometry */
+  --vee-radius: 10px;
+  --vee-radius-sm: 6px;
+  --vee-radius-xs: 4px;
+  --vee-radius-lg: 14px;
+  --vee-radius-full: 9999px;
+
+  /* Shadows */
+  --vee-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --vee-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --vee-shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --vee-shadow-glow: 0 0 20px var(--vee-primary-glow);
+
+  /* Motion */
+  --vee-transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --vee-transition-fast: 0.1s ease;
+  --vee-transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Typography */
+  --vee-font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --vee-font-mono: 'Space Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+
+  /* Z-index scale */
+  --vee-z-drag: 50;
+  --vee-z-toolbar: 100;
+  --vee-z-modal: 9999;
+}
+
+
+/* ============================================================
+   1. LAYOUT — Main 3-column structure
+   ============================================================ */
+
+.vee-container {
+  display: flex;
+  height: 100%;
+  min-height: 600px;
+  background: var(--vee-bg);
+  color: var(--vee-text);
+  font-family: var(--vee-font-sans);
+  font-size: 14px;
+  border-radius: var(--vee-radius);
+  overflow: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.vee-container *,
+.vee-container *::before,
+.vee-container *::after {
+  box-sizing: border-box;
+}
+
+.vee-container.is-dragging * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+
+/* ============================================================
+   2. SIDEBAR — Left panel with tabs
+   ============================================================ */
+
+.vee-sidebar {
+  width: 240px;
+  min-width: 240px;
+  background: var(--vee-surface);
+  border-right: 1px solid var(--vee-border);
+  overflow-y: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Sidebar tabs --- */
+.vee-sidebar-tabs {
+  display: flex;
+  gap: 0;
+  background: var(--vee-bg);
+  padding: 6px;
+  border-bottom: 1px solid var(--vee-border);
+  flex-shrink: 0;
+}
+
+.vee-sidebar-tabs button {
+  flex: 1;
+  padding: 8px 6px;
+  background: none;
+  border: none;
+  color: var(--vee-text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: var(--vee-radius-sm);
+  transition: all var(--vee-transition);
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.vee-sidebar-tabs button.active {
+  background: var(--vee-primary);
+  color: #fff;
+  box-shadow: 0 2px 8px var(--vee-primary-glow);
+}
+
+.vee-sidebar-tabs button:hover:not(.active) {
+  color: var(--vee-text);
+  background: var(--vee-card);
+}
+
+/* --- Sidebar sections --- */
+.vee-sidebar-section {
+  padding: 12px;
+}
+
+.vee-sidebar-section h3 {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--vee-text-dim);
+  margin: 0 0 8px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--vee-border);
+  font-weight: 600;
+}
+
+/* --- Block items (draggable from sidebar) --- */
+.vee-block-item {
+  padding: 9px 12px;
+  margin-bottom: 3px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  cursor: grab;
+  font-size: 13px;
+  transition: all var(--vee-transition);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.vee-block-item:hover {
+  background: var(--vee-primary);
+  border-color: var(--vee-primary);
+  color: #fff;
+  transform: translateX(3px);
+  box-shadow: var(--vee-shadow-sm);
+}
+
+.vee-block-item:active {
+  cursor: grabbing;
+  transform: scale(0.97);
+}
+
+/* --- Action buttons --- */
+.vee-action-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 3px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  color: var(--vee-text);
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--vee-transition);
+  font-family: inherit;
+}
+
+.vee-action-btn:hover:not(:disabled) {
+  background: var(--vee-primary);
+  border-color: var(--vee-primary);
+  color: #fff;
+}
+
+.vee-action-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.vee-action-btn.vee-danger:hover:not(:disabled) {
+  background: var(--vee-danger);
+  border-color: var(--vee-danger);
+}
+
+
+/* ============================================================
+   3. CANVAS — Central email preview area
+   ============================================================ */
+
+.vee-canvas-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* --- Top bar --- */
+.vee-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 20px;
+  background: var(--vee-surface);
+  border-bottom: 1px solid var(--vee-border);
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.vee-topbar-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vee-block-count {
+  font-size: 12px;
+  color: var(--vee-text-muted);
+  background: var(--vee-card);
+  padding: 4px 12px;
+  border-radius: var(--vee-radius-full);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* --- View mode switcher --- */
+.vee-view-modes {
+  display: flex;
+  gap: 2px;
+  background: var(--vee-card);
+  padding: 3px;
+  border-radius: 8px;
+}
+
+.vee-view-modes button {
+  padding: 6px 16px;
+  background: none;
+  border: none;
+  color: var(--vee-text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all var(--vee-transition);
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.vee-view-modes button.active {
+  background: var(--vee-primary);
+  color: #fff;
+  box-shadow: 0 2px 8px var(--vee-primary-glow);
+}
+
+.vee-view-modes button:hover:not(.active) {
+  color: var(--vee-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Canvas scroll area --- */
+.vee-canvas-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.vee-canvas {
+  
+  margin: 0 auto;
+  width: 100%;
+  transition: max-width var(--vee-transition-slow);
+  border-radius: 12px;
+  box-shadow: var(--vee-shadow);
+  overflow: visible;
+}
+
+.vee-preview-frame {
+  background: #fff;
+  border-radius: 12px;
+  overflow: visible;
+  box-shadow: var(--vee-shadow);
+}
+
+/* --- Empty state --- */
+.vee-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  color: #999;
+  font-size: 15px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  margin: 24px;
+  text-align: center;
+  transition: all var(--vee-transition);
+}
+
+.vee-empty-state:hover {
+  border-color: #bbb;
+  background: #fafafa;
+}
+
+
+/* ============================================================
+   4. BLOCK WRAPPERS — Email block containers on canvas
+   ============================================================ */
+
+.vee-block-wrapper {
+  position: relative;
+  transition: box-shadow var(--vee-transition), opacity var(--vee-transition);
+}
+
+.vee-block-wrapper:hover {
+  box-shadow: inset 0 0 0 2px var(--vee-primary-light);
+}
+
+.vee-block-wrapper.selected {
+  box-shadow: inset 0 0 0 2px var(--vee-primary);
+}
+
+.vee-block-wrapper.dragging {
+  opacity: 0.35;
+  transform: scale(0.98);
+}
+
+.vee-block-wrapper[draggable="true"] {
+  cursor: grab;
+}
+
+.vee-block-wrapper[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+/* --- Drag handle --- */
+.vee-drag-handle {
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vee-primary);
+  color: #fff;
+  font-size: 14px;
+  border-radius: var(--vee-radius-xs) 0 0 var(--vee-radius-xs);
+  opacity: 0;
+  transition: opacity var(--vee-transition);
+  cursor: grab;
+  z-index: var(--vee-z-drag);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.vee-block-wrapper:hover .vee-drag-handle,
+.vee-block-wrapper.selected .vee-drag-handle {
+  opacity: 1;
+}
+
+/* --- Block toolbar (appears above selected block) --- */
+.vee-block-toolbar {
+  position: absolute;
+  top: -36px;
+  right: 4px;
+  display: flex;
+  gap: 2px;
+  background: var(--vee-primary);
+  padding: 4px;
+  border-radius: 8px;
+  z-index: var(--vee-z-toolbar);
+  box-shadow: 0 4px 16px var(--vee-primary-glow);
+  animation: vee-fadeInDown 0.15s ease;
+}
+
+.vee-block-toolbar button {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  transition: background var(--vee-transition-fast);
+  color: #fff;
+}
+
+.vee-block-toolbar button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.vee-block-toolbar button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.vee-block-toolbar button.vee-toolbar-danger:hover {
+  background: var(--vee-danger);
+}
+
+/* --- Drop indicators (between blocks) --- */
+.vee-drop-indicator {
+  height: 3px;
+  transition: all var(--vee-transition);
+  border-radius: 2px;
+  margin: 0 8px;
+}
+
+.vee-drop-indicator.active {
+  height: 4px;
+  background: var(--vee-primary);
+  box-shadow: 0 0 14px var(--vee-primary-light);
+}
+
+
+/* ============================================================
+   5. PROPERTIES PANEL — Right panel for block editing
+   ============================================================ */
+
+.vee-props-panel {
+  width: 300px;
+  min-width: 300px;
+  background: var(--vee-surface);
+  border-left: 1px solid var(--vee-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: vee-slideInRight 0.2s ease;
+}
+
+.vee-props-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--vee-border);
+  font-weight: 600;
+  font-size: 14px;
+  background: var(--vee-bg);
+  flex-shrink: 0;
+}
+
+.vee-props-close {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  color: var(--vee-text);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all var(--vee-transition);
+}
+
+.vee-props-close:hover {
+  background: var(--vee-danger);
+  border-color: var(--vee-danger);
+  color: #fff;
+}
+
+.vee-props-body {
+  flex: 1;
+  min-height: 0;          /* fondamentale per abilitare lo scroll */
+  max-height: 100vh;      /* opzionale ma utile: non oltre la viewport */
+  overflow-y: auto;       /* fa comparire la scrollbar verticale */
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+
+.vee-props-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--vee-primary-light);
+  margin-top: 14px;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--vee-border);
+}
+
+/* --- Labels --- */
+.vee-props-body label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--vee-text-muted);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --- Text inputs --- */
+.vee-props-body input[type="text"],
+.vee-props-body input[type="number"],
+.vee-props-body input[type="date"],
+.vee-props-body input[type="time"],
+.vee-props-body input[type="url"],
+.vee-props-body select,
+.vee-datetime-input {
+  width: 100%;
+  padding: 8px 10px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  color: var(--vee-text);
+  font-size: 13px;
+  outline: none;
+  transition: border-color var(--vee-transition), box-shadow var(--vee-transition);
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.vee-props-body input:focus,
+.vee-props-body select:focus,
+.vee-props-body textarea:focus,
+.vee-datetime-input:focus {
+  border-color: var(--vee-primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+
+/* --- Color inputs --- */
+.vee-props-body input[type="color"] {
+  width: 40px;
+  height: 36px;
+  padding: 2px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color var(--vee-transition);
+}
+
+.vee-props-body input[type="color"]:hover {
+  border-color: var(--vee-primary-light);
+}
+
+/* --- Checkbox --- */
+.vee-props-body input[type="checkbox"] {
+  accent-color: var(--vee-primary);
+  margin-right: 6px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* --- Textarea --- */
+.vee-textarea {
+  width: 100%;
+  padding: 8px 10px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  color: var(--vee-text);
+  font-size: 13px;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.5;
+  transition: border-color var(--vee-transition), box-shadow var(--vee-transition);
+  box-sizing: border-box;
+  min-height: 60px;
+}
+
+.vee-textarea:focus {
+  border-color: var(--vee-primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+
+.vee-textarea-code {
+  font-family: var(--vee-font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  tab-size: 2;
+}
+
+/* --- Color input row (swatch + text) --- */
+.vee-color-input-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.vee-color-text-input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* --- Color presets --- */
+.vee-color-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.vee-color-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--vee-border);
+  cursor: pointer;
+  transition: all var(--vee-transition);
+  padding: 0;
+  background: none;
+}
+
+.vee-color-dot:hover {
+  transform: scale(1.25);
+  box-shadow: var(--vee-shadow-sm);
+}
+
+.vee-color-dot.active {
+  border-color: var(--vee-primary);
+  box-shadow: 0 0 0 2px var(--vee-primary-light);
+}
+
+/* --- Text style (B/I/U) --- */
+.vee-text-style-group {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.vee-text-style-group button {
+  flex: 1;
+  padding: 6px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--vee-text);
+  transition: all var(--vee-transition);
+  font-family: inherit;
+}
+
+.vee-text-style-group button.active {
+  background: var(--vee-primary);
+  border-color: var(--vee-primary);
+  color: #fff;
+}
+
+.vee-text-style-group button:hover:not(.active) {
+  border-color: var(--vee-primary-light);
+  background: var(--vee-card-hover);
+}
+
+/* --- Alignment group --- */
+.vee-align-group {
+  display: flex;
+  gap: 4px;
+}
+
+.vee-align-group button {
+  flex: 1;
+  padding: 7px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  cursor: pointer;
+  font-size: 15px;
+  transition: all var(--vee-transition);
+  color: var(--vee-text);
+  font-family: inherit;
+}
+
+.vee-align-group button.active {
+  background: var(--vee-primary);
+  border-color: var(--vee-primary);
+  color: #fff;
+}
+
+.vee-align-group button:hover:not(.active) {
+  border-color: var(--vee-primary-light);
+  background: var(--vee-card-hover);
+}
+
+/* --- Padding group (2x2 grid) --- */
+.vee-padding-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.vee-padding-group input {
+  width: 100%;
+  padding: 7px 8px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  color: var(--vee-text);
+  font-size: 13px;
+  text-align: center;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--vee-transition);
+}
+
+.vee-padding-group input:focus {
+  border-color: var(--vee-primary);
+}
+
+/* --- Social link rows --- */
+.vee-social-row {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.vee-social-row select {
+  width: auto;
+  flex-shrink: 0;
+  min-width: 100px;
+}
+
+.vee-social-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* --- Mini button (delete/action) --- */
+.vee-mini-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  cursor: pointer;
+  font-size: 12px;
+  flex-shrink: 0;
+  transition: all var(--vee-transition);
+  color: var(--vee-text);
+  padding: 0;
+}
+
+.vee-mini-btn:hover {
+  background: var(--vee-card-hover);
+  border-color: var(--vee-border-light);
+}
+
+.vee-mini-btn.vee-danger-text {
+  color: var(--vee-danger);
+}
+
+.vee-mini-btn.vee-danger-text:hover {
+  background: var(--vee-danger);
+  border-color: var(--vee-danger);
+  color: #fff;
+}
+
+/* --- List item row --- */
+.vee-list-item-row {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.vee-list-item-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* --- Price row (input + currency select) --- */
+.vee-price-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.vee-price-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.vee-price-row select {
+  width: auto;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+/* --- Add button (dashed) --- */
+.vee-add-btn {
+  padding: 7px 12px;
+  background: var(--vee-card);
+  border: 1px dashed var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  color: var(--vee-primary);
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+  transition: all var(--vee-transition);
+  font-family: inherit;
+  width: 100%;
+}
+
+.vee-add-btn:hover {
+  background: var(--vee-primary);
+  color: #fff;
+  border-color: var(--vee-primary);
+  border-style: solid;
+}
+
+/* --- Character counter --- */
+.vee-char-counter {
+  font-size: 11px;
+  color: var(--vee-text-muted);
+  text-align: right;
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.vee-char-counter.warning {
+  color: var(--vee-warning);
+}
+
+.vee-char-counter.error {
+  color: var(--vee-danger);
+  font-weight: 600;
+}
+
+/* --- Settings (sidebar) --- */
+.vee-settings-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--vee-text-muted);
+  margin: 8px 0 4px 0;
+}
+
+.vee-settings-input {
+  width: 100%;
+  padding: 7px 10px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  color: var(--vee-text);
+  font-size: 13px;
+  outline: none;
+  transition: border-color var(--vee-transition);
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.vee-settings-input:focus {
+  border-color: var(--vee-primary);
+}
+
+
+/* ============================================================
+   6. MODAL — Overlays (JSON, Save Template)
+   ============================================================ */
+
+.vee-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--vee-z-modal);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: vee-fadeIn 0.2s ease;
+}
+
+.vee-modal {
+  width: 90%;
+  max-width: 640px;
+  background: var(--vee-surface);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-lg);
+  box-shadow: var(--vee-shadow-lg);
+  overflow: hidden;
+  animation: vee-scaleIn 0.2s ease;
+}
+
+.vee-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--vee-border);
+  font-weight: 600;
+  font-size: 15px;
+  background: var(--vee-bg);
+}
+
+.vee-modal-body {
+  padding: 20px;
+}
+
+.vee-modal-footer {
+  display: flex;
+  gap: 8px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--vee-border);
+  justify-content: flex-end;
+  background: var(--vee-bg);
+}
+
+.vee-modal-actions {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--vee-border);
+  justify-content: flex-end;
+}
+
+.vee-modal-actions .vee-action-btn {
+  width: auto;
+  display: inline-block;
+}
+
+.vee-json-textarea {
+  margin: 16px;
+  width: calc(100% - 32px);
+  min-height: 300px;
+}
+
+/* --- Modal inputs --- */
+.vee-modal-input {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  color: var(--vee-text);
+  font-size: 14px;
+  outline: none;
+  transition: border-color var(--vee-transition), box-shadow var(--vee-transition);
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  font-family: inherit;
+}
+
+.vee-modal-input:focus {
+  border-color: var(--vee-primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+
+.vee-modal-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  color: var(--vee-text);
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.5;
+  transition: border-color var(--vee-transition), box-shadow var(--vee-transition);
+  box-sizing: border-box;
+  min-height: 80px;
+}
+
+.vee-modal-textarea:focus {
+  border-color: var(--vee-primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+
+
+/* ============================================================
+   7. IMAGE DROP ZONE — Drag & Drop Upload (Feature 1)
+   ============================================================ */
+
+.vee-image-dropzone {
+  position: relative;
+  border: 2px dashed #ccc;
+  border-radius: var(--vee-radius);
+  overflow: hidden;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.vee-image-dropzone:hover {
+  border-color: #aaa;
+}
+
+.vee-image-dropzone.drag-over {
+  border-color: var(--vee-primary);
+  background: rgba(108, 92, 231, 0.06);
+  box-shadow: var(--vee-shadow-glow);
+  transform: scale(1.01);
+}
+
+.vee-image-dropzone.uploading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Also support dark-theme upload zone variant */
+.vee-upload-zone {
+  border: 2px dashed var(--vee-border);
+  border-radius: var(--vee-radius);
+  padding: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--vee-transition);
+  background: var(--vee-card);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.vee-upload-zone:hover {
+  border-color: var(--vee-primary);
+  background: var(--vee-card-hover);
+}
+
+.vee-upload-zone.dragging {
+  border-color: var(--vee-primary);
+  background: rgba(108, 92, 231, 0.1);
+  border-style: solid;
+}
+
+.vee-upload-zone.uploading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* --- Image preview container --- */
+.vee-image-preview-container {
+  position: relative;
+  border-radius: var(--vee-radius);
+  overflow: hidden;
+}
+
+.vee-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  cursor: pointer;
+}
+
+.vee-image-overlay span {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  background: rgba(108, 92, 231, 0.9);
+  border-radius: 8px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 12px var(--vee-primary-glow);
+}
+
+.vee-image-preview-container:hover .vee-image-overlay {
+  opacity: 1;
+}
+
+.vee-image-preview-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  justify-content: center;
+}
+
+/* --- Upload prompt (empty state) --- */
+.vee-image-upload-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 6px;
+  min-height: 160px;
+  background: #fafafa;
+  transition: background 0.2s;
+}
+
+.vee-image-dropzone:hover .vee-image-upload-prompt {
+  background: #f0f0f5;
+}
+
+.vee-upload-icon {
+  font-size: 42px;
+  margin-bottom: 6px;
+  color: var(--vee-text-muted);
+  line-height: 1;
+}
+
+.vee-upload-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #444;
+}
+
+.vee-upload-subtext {
+  font-size: 13px;
+  color: #888;
+}
+
+.vee-upload-formats {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 6px;
+  letter-spacing: 0.3px;
+}
+
+.vee-upload-or {
+  font-size: 12px;
+  color: var(--vee-text-muted);
+  margin: 8px 0 4px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.vee-upload-url-input {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  color: var(--vee-text);
+  font-size: 13px;
+  outline: none;
+  transition: border-color var(--vee-transition);
+  box-sizing: border-box;
+}
+
+.vee-upload-url-input:focus {
+  border-color: var(--vee-primary);
+}
+
+/* --- Upload progress --- */
+.vee-upload-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  background: var(--vee-bg);
+  text-align: center;
+}
+
+.vee-upload-progress span {
+  font-size: 12px;
+  color: var(--vee-text-muted);
+}
+
+.vee-upload-progress-bar {
+  height: 4px;
+  background: var(--vee-border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.vee-upload-progress-bar-fill {
+  height: 100%;
+  background: var(--vee-primary);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* --- Spinner --- */
+.vee-upload-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #666;
+  font-size: 14px;
+}
+
+.vee-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e0e0e0;
+  border-top-color: var(--vee-primary);
+  border-radius: 50%;
+  animation: vee-spin 0.65s linear infinite;
+}
+
+/* --- Upload error --- */
+.vee-upload-error {
+  background: var(--vee-danger-bg);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+  padding: 8px 14px;
+  margin: 8px;
+  border-radius: var(--vee-radius-sm);
+  font-size: 12px;
+  text-align: center;
+  font-weight: 500;
+}
+
+
+/* ============================================================
+   8. DELIVERABILITY PANEL — Email quality analysis (Feature 5)
+   ============================================================ */
+
+.vee-deliverability-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vee-deliv-score-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.vee-deliv-rating {
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* --- Stats meta cards (blocks count / words) --- */
+.vee-deliv-meta {
+  display: flex;
+  gap: 8px;
+}
+
+.vee-deliv-meta-item {
+  flex: 1;
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  padding: 10px 8px;
+  text-align: center;
+  transition: border-color var(--vee-transition);
+}
+
+.vee-deliv-meta-item:hover {
+  border-color: var(--vee-border-light);
+}
+
+.vee-deliv-meta-label {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--vee-text-dim);
+  margin-bottom: 3px;
+}
+
+.vee-deliv-meta-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--vee-primary-light);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Issues and tips sections --- */
+.vee-deliv-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.vee-deliv-section-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--vee-text-dim);
+  font-weight: 700;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--vee-border);
+  margin-bottom: 2px;
+}
+
+.vee-deliv-issue,
+.vee-deliv-tip {
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  line-height: 1.5;
+  transition: transform var(--vee-transition-fast);
+}
+
+.vee-deliv-issue:hover,
+.vee-deliv-tip:hover {
+  transform: translateX(2px);
+}
+
+.vee-deliv-issue {
+  background: var(--vee-danger-bg);
+  color: var(--vee-danger-light);
+  border-left: 3px solid var(--vee-danger);
+}
+
+.vee-deliv-tip {
+  background: var(--vee-success-bg);
+  color: var(--vee-success-light);
+  border-left: 3px solid var(--vee-success);
+}
+
+/* --- Stats bar (alternative horizontal format) --- */
+.vee-stats-bar {
+  background: var(--vee-surface);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius);
+  padding: 12px 16px;
+  margin: 16px 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.vee-stats-score {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vee-stats-badge {
+  padding: 6px 12px;
+  border-radius: var(--vee-radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vee-stats-badge.vee-stats-good {
+  background: var(--vee-success-bg);
+  color: var(--vee-success);
+  border: 1px solid var(--vee-success);
+}
+
+.vee-stats-badge.vee-stats-warning {
+  background: var(--vee-warning-bg);
+  color: var(--vee-warning);
+  border: 1px solid var(--vee-warning);
+}
+
+.vee-stats-badge.vee-stats-bad {
+  background: var(--vee-danger-bg);
+  color: var(--vee-danger);
+  border: 1px solid var(--vee-danger);
+}
+
+.vee-stats-number {
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.vee-stats-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+}
+
+.vee-stats-details {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--vee-text-muted);
+}
+
+.vee-stats-details span::before {
+  content: '• ';
+  color: var(--vee-primary);
+  margin-right: 4px;
+}
+
+.vee-stats-tips {
+  flex: 1 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--vee-border);
+}
+
+.vee-stats-tip {
+  background: var(--vee-warning-bg);
+  color: var(--vee-warning);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.vee-stats-tip::before {
+  content: '⚠️ ';
+  margin-right: 4px;
+}
+
+
+/* ============================================================
+   9. MOBILE PREVIEW — Smartphone frame in stats sidebar
+   ============================================================ */
+
+.vee-mobile-preview-frame {
+  width: 200px;
+  margin: 0 auto;
+  background: #111;
+  border: 3px solid #333;
+  border-radius: 28px;
+  padding: 10px 5px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.vee-mobile-notch {
+  width: 70px;
+  height: 6px;
+  background: #333;
+  border-radius: 3px;
+  margin: 0 auto 8px;
+}
+
+.vee-mobile-iframe {
+  width: 100%;
+  height: 340px;
+  border: none;
+  border-radius: 6px;
+  background: #fff;
+  display: block;
+}
+
+.vee-mobile-home-bar {
+  width: 50px;
+  height: 4px;
+  background: #444;
+  border-radius: 2px;
+  margin: 8px auto 0;
+}
+
+/* Preview mode variants */
+.vee-preview-mode-toggle {
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--vee-card);
+  border-radius: var(--vee-radius-sm);
+  margin-bottom: 8px;
+}
+
+.vee-preview-mode-toggle button {
+  flex: 1;
+  padding: 6px 12px;
+  background: none;
+  border: 1px solid var(--vee-border);
+  color: var(--vee-text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: var(--vee-radius-xs);
+  transition: all var(--vee-transition);
+  font-family: inherit;
+}
+
+.vee-preview-mode-toggle button.active {
+  background: var(--vee-primary);
+  border-color: var(--vee-primary);
+  color: #fff;
+}
+
+.vee-preview-mode-toggle button:hover:not(.active) {
+  border-color: var(--vee-primary-light);
+  color: var(--vee-text);
+}
+
+.vee-preview-desktop {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.vee-preview-mobile {
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.vee-preview-iframe {
+  width: 100%;
+  border: none;
+  border-radius: var(--vee-radius);
+  background: #fff;
+  min-height: 400px;
+}
+
+
+/* ============================================================
+   10. CUSTOM TEMPLATES — Save/Load user templates (Feature 4)
+   ============================================================ */
+
+.vee-template-card {
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: all var(--vee-transition);
+}
+
+.vee-template-card:hover {
+  background: var(--vee-primary);
+  border-color: var(--vee-primary);
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.vee-template-card h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.vee-template-card p {
+  font-size: 11px;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.vee-custom-template-card {
+  background: var(--vee-card);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-sm);
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: all var(--vee-transition);
+}
+
+.vee-custom-template-card:hover {
+  background: var(--vee-card-hover);
+  border-color: var(--vee-primary-light);
+  transform: translateX(2px);
+}
+
+.vee-custom-template-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.vee-custom-template-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--vee-text);
+  margin: 0 0 4px 0;
+}
+
+.vee-custom-template-meta {
+  font-size: 11px;
+  color: var(--vee-text-dim);
+}
+
+.vee-custom-template-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.vee-custom-template-actions button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vee-surface);
+  border: 1px solid var(--vee-border);
+  border-radius: var(--vee-radius-xs);
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--vee-text);
+  transition: all var(--vee-transition);
+  padding: 0;
+}
+
+.vee-custom-template-actions button:hover {
+  background: var(--vee-danger);
+  border-color: var(--vee-danger);
+  color: #fff;
+}
+
+
+/* ============================================================
+   11. ANIMATIONS
+   ============================================================ */
+
+@keyframes vee-fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes vee-fadeInDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vee-fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vee-scaleIn {
+  from { transform: scale(0.94); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes vee-slideInRight {
+  from { transform: translateX(30px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes vee-slideInLeft {
+  from { transform: translateX(-30px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes vee-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes vee-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.5; }
+}
+
+@keyframes vee-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes vee-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+
+/* ============================================================
+   12. UTILITY CLASSES
+   ============================================================ */
+
+.vee-flex           { display: flex; }
+.vee-flex-col       { flex-direction: column; }
+.vee-flex-wrap      { flex-wrap: wrap; }
+.vee-items-center   { align-items: center; }
+.vee-justify-center { justify-content: center; }
+.vee-justify-between { justify-content: space-between; }
+.vee-text-center    { text-align: center; }
+.vee-text-right     { text-align: right; }
+.vee-text-left      { text-align: left; }
+.vee-truncate       { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vee-sr-only        { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.vee-loading        { animation: vee-pulse 1.5s ease-in-out infinite; }
+.vee-shimmer        { background: linear-gradient(90deg, var(--vee-card) 25%, var(--vee-card-hover) 50%, var(--vee-card) 75%); background-size: 200% 100%; animation: vee-shimmer 1.5s ease infinite; }
+
+/* Spacing */
+.vee-mt-4  { margin-top: 4px; }
+.vee-mt-8  { margin-top: 8px; }
+.vee-mt-12 { margin-top: 12px; }
+.vee-mt-16 { margin-top: 16px; }
+.vee-mb-4  { margin-bottom: 4px; }
+.vee-mb-8  { margin-bottom: 8px; }
+.vee-mb-12 { margin-bottom: 12px; }
+.vee-mb-16 { margin-bottom: 16px; }
+.vee-gap-2 { gap: 2px; }
+.vee-gap-4 { gap: 4px; }
+.vee-gap-6 { gap: 6px; }
+.vee-gap-8 { gap: 8px; }
+.vee-gap-12 { gap: 12px; }
+.vee-p-8   { padding: 8px; }
+.vee-p-12  { padding: 12px; }
+.vee-p-16  { padding: 16px; }
+
+/* Status colors */
+.vee-text-success { color: var(--vee-success); }
+.vee-text-warning { color: var(--vee-warning); }
+.vee-text-danger  { color: var(--vee-danger); }
+.vee-text-info    { color: var(--vee-info); }
+.vee-text-primary { color: var(--vee-primary); }
+.vee-text-muted   { color: var(--vee-text-muted); }
+.vee-text-dim     { color: var(--vee-text-dim); }
+
+
+/* ============================================================
+   13. SCROLLBAR
+   ============================================================ */
+
+.vee-sidebar::-webkit-scrollbar,
+.vee-canvas-scroll::-webkit-scrollbar,
+.vee-props-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vee-sidebar::-webkit-scrollbar-track,
+.vee-canvas-scroll::-webkit-scrollbar-track,
+.vee-props-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.vee-sidebar::-webkit-scrollbar-thumb,
+.vee-canvas-scroll::-webkit-scrollbar-thumb,
+.vee-props-body::-webkit-scrollbar-thumb {
+  background: var(--vee-border);
+  border-radius: 3px;
+}
+
+.vee-sidebar::-webkit-scrollbar-thumb:hover,
+.vee-canvas-scroll::-webkit-scrollbar-thumb:hover,
+.vee-props-body::-webkit-scrollbar-thumb:hover {
+  background: var(--vee-primary-light);
+}
+
+/* Firefox */
+.vee-sidebar,
+.vee-canvas-scroll,
+.vee-props-body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--vee-border) transparent;
+}
+
+
+/* ============================================================
+   14. ACCESSIBILITY
+   ============================================================ */
+
+.vee-container *:focus-visible {
+  outline: 2px solid var(--vee-primary-light);
+  outline-offset: 2px;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .vee-container *,
+  .vee-container *::before,
+  .vee-container *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ============================================================
+   15. RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1100px) {
+  .vee-sidebar {
+    width: 210px;
+    min-width: 210px;
+  }
+  .vee-props-panel {
+    width: 270px;
+    min-width: 270px;
+  }
+  .vee-canvas-scroll {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .vee-sidebar {
+    width: 190px;
+    min-width: 190px;
+  }
+  .vee-props-panel {
+    width: 250px;
+    min-width: 250px;
+  }
+  .vee-view-modes button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .vee-container {
+    flex-direction: column;
+  }
+  .vee-sidebar {
+    width: 100%;
+    min-width: 100%;
+    max-height: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--vee-border);
+  }
+  .vee-props-panel {
+    width: 100%;
+    min-width: 100%;
+    max-height: 320px;
+    border-left: none;
+    border-top: 1px solid var(--vee-border);
+  }
+  .vee-canvas-scroll {
+    padding: 12px;
+  }
+  .vee-topbar {
+    flex-wrap: wrap;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+}
+
+/* Fix: testo nelle colonne va a capo */
+.vee-canvas [style*="display: flex"] > div,
+.vee-canvas td,
+.vee-canvas .vee-block-content,
+.vee-canvas div[contenteditable],
+.vee-canvas p,
+.vee-canvas span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Canvas background pattern — stile editor professionale */
+.vee-canvas-scroll {
+  background-image: 
+    linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.03) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.03) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Fix: centra il contenuto email nel canvas */
+.vee-canvas .vee-preview-frame,
+.vee-canvas .vee-email-frame,
+.vee-canvas .vee-preview-container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
