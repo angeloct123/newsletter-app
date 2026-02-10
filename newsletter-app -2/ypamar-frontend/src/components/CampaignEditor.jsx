@@ -359,8 +359,8 @@ export default function CampaignEditor({ campaignId }) {
     setSending(true)
     try {
       await handleSave(true)
-      await api(`/campaigns/${campaignId}/send`, { method: 'POST' })
-      showToast('Campagna inviata!', 'success')
+      const res = await api(`/campaigns/${campaignId}/send`, { method: 'POST' })
+      showToast(res.message || (scheduleDate && scheduleTime ? 'Campagna programmata!' : 'Campagna inviata!'), 'success')
       navigate('campaigns')
     } catch {
       showToast('Errore nell\'invio della campagna', 'error')
@@ -485,7 +485,7 @@ export default function CampaignEditor({ campaignId }) {
                 className="ce-btn ce-btn-primary"
                 onClick={() => setShowSendConfirm(true)}
               >
-                <SendIcon /> Invia
+                <SendIcon /> {scheduleDate && scheduleTime ? 'Programma' : 'Invia'}
               </button>
             )}
           </div>
@@ -845,7 +845,7 @@ export default function CampaignEditor({ campaignId }) {
                 onClick={handleSend}
                 disabled={sending}
               >
-                <SendIcon /> {sending ? 'Invio in corso...' : 'Conferma invio'}
+                <SendIcon /> {sending ? 'Elaborazione...' : (scheduleDate && scheduleTime ? 'Conferma programmazione' : 'Conferma invio')}
               </button>
             </div>
           </div>

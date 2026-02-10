@@ -724,6 +724,49 @@ app.post('/api/campaigns/:id/duplicate', authMiddleware, function(req, res) {
 // SISTEMA DI CODA EMAIL (QUEUE SYSTEM)
 // =============================================
 
+// Helper: Enqueue campaign emails
+function enqueueCampaign(campaignId) {
+  const campaign = dbGet('SELECT * FROM campaigns WHERE id = ?', [campaignId]);
+  if (!campaign) throw new Error('Campagna non trovata');
+
+  // Recupera i tag target dalla campagna stessa (salvati in precedenza)
+  let targetTags = [];
+  try {
+    targetTags = JSON.parse(campaign.target_tags || '[]');
+  } catch (e) { targetTags = []; }
+
+  let subscribers;
+  if (targetTags && Array.isArray(targetTags) && targetTags.length > 0) {
+    const allActive = dbAll("SELECT * FROM subscribers WHERE status = 'active'", []);
+    subscribers = allActive.filter(s => {
+      try {
+        const tags = JSON.parse(s.tags || '[]');
+        return targetTags.some(t => tags.includes(t));
+      } catch(e) { return false; }
+    });
+  } else {
+    subscribers = dbAll("SELECT * FROM subscribers WHERE status = 'active'", []);
+  }
+
+  if (subscribers.length === 0) {
+    throw new Error('Nessun iscritto attivo per i criteri selezionati');
+  }
+
+  dbRun("UPDATE campaigns SET status = 'sending', total_recipients = ? WHERE id = ?",
+    [subscribers.length, campaign.id]);
+
+  for (let i = 0; i < subscribers.length; i++) {
+    const sub = subscribers[i];
+    dbRun(
+      'INSERT INTO email_queue (id, campaign_id, subscriber_id, subscriber_email, subscriber_name, status) VALUES (?, ?, ?, ?, ?, ?)',
+      [uuidv4(), campaign.id, sub.id, sub.email, sub.name, 'pending']
+    );
+  }
+
+  console.log(`📧 Campagna "${campaign.name}": ${subscribers.length} email aggiunte alla coda`);
+  return subscribers.length;
+}
+
 app.post('/api/campaigns/:id/send', authMiddleware, async function(req, res) {
   try {
     const campaign = dbGet('SELECT * FROM campaigns WHERE id = ?', [req.params.id]);
@@ -865,6 +908,34 @@ async function processEmailQueue() {
 
 setInterval(processEmailQueue, EMAIL_DELAY_MS);
 console.log(`⏱️ Queue worker attivo: 1 email ogni ${EMAIL_DELAY_MS / 1000}s (${EMAIL_RATE_LIMIT}/ora)`);
+
+// WORKER: Controlla campagne programmate
+function checkScheduledCampaigns() {
+  if (!db) return;
+  try {
+    const now = new Date().toISOString();
+    // Trova campagne "scheduled" con data passata o presente
+    const toSend = dbAll("SELECT id, name FROM campaigns WHERE status = 'scheduled' AND scheduled_at <= ?", [now]);
+
+    if (toSend.length > 0) {
+      console.log(`⏰ Trovate ${toSend.length} campagne programmate da inviare.`);
+      toSend.forEach(c => {
+        try {
+          console.log(`🚀 Avvio automatico campagna programmata: "${c.name}"`);
+          enqueueCampaign(c.id);
+        } catch (e) {
+          console.error(`❌ Errore avvio campagna "${c.name}":`, e.message);
+        }
+      });
+    }
+  } catch(err) {
+    console.error('Scheduler error:', err);
+  }
+}
+
+// Controllo ogni minuto
+setInterval(checkScheduledCampaigns, 60000);
+console.log('⏰ Scheduler attivo: controllo ogni 60s');
 
 // =============================================
 // TEST EMAIL & SMTP

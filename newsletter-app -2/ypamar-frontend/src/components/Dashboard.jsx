@@ -123,15 +123,19 @@ export default function Dashboard() {
           </div>
           <div className="card-body">
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" tick={{ fontSize: 12 }} />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="total_sent" name="Inviate" fill="var(--primary)" />
-                <Bar dataKey="total_opened" name="Aperte" fill="var(--success)" />
-                <Bar dataKey="total_clicked" name="Click" fill="var(--warning)" />
+              <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+                <XAxis dataKey="name" tick={{ fontSize: 12, fill: 'var(--text-secondary)' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 12, fill: 'var(--text-secondary)' }} axisLine={false} tickLine={false} />
+                <Tooltip
+                  contentStyle={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)', borderRadius: 'var(--radius-sm)', color: 'var(--text-primary)' }}
+                  itemStyle={{ color: 'var(--text-primary)' }}
+                  cursor={{ fill: 'var(--bg-elevated)' }}
+                />
+                <Legend wrapperStyle={{ paddingTop: '20px' }} />
+                <Bar dataKey="total_sent" name="Inviate" fill="var(--accent)" radius={[4, 4, 0, 0]} barSize={20} />
+                <Bar dataKey="total_opened" name="Aperte" fill="var(--success)" radius={[4, 4, 0, 0]} barSize={20} />
+                <Bar dataKey="total_clicked" name="Click" fill="var(--warning)" radius={[4, 4, 0, 0]} barSize={20} />
               </BarChart>
             </ResponsiveContainer>
           </div>
